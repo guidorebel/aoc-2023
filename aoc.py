@@ -107,16 +107,19 @@ class PuzzleData:
         """
         Convert a list a strings into a list of extracted integers.
 
-        Example of a string in the input data:
+        Example of strings in the input data:
         "This is an example with coordinates x=123, y=-321 and p=345, q=543"
+        "This is an example with coordinates x=97, y=1271 and p=1125, q=-78"
 
-        This will convert into a list with values:
-        [123, -321, 345, 543]]
+        This will convert into list of lists with integer values:
+        [123, -321, 345, 543]
+        [97, 1271, 1125, -78]
         """
 
-        data = self.getStrList()
+        data: list[str] = self.getStrList()
 
-        intList = []
+        intList: list[list[int]]= []
+
         for line in data:
             intList.append([int(i) for i in re.findall(r"-?\d+", line)])
 
