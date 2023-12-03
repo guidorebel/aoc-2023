@@ -1,5 +1,31 @@
 
 
+class DataGrid():
+
+    def __init__(self, data):
+        self.data = data
+        self.rows = len(data)
+        self.cols = len(data[0])
+
+    def get (self, x, y):
+        return self.data[y][x]
+    
+    def set (self, x, y, value):
+        self.data[y][x] = value
+
+    def getRow (self, row):
+        return self.data[row]
+    
+    def getCol (self, col):
+        column = []
+        for row in self.rows: column.append(self.data[row][col])
+        return column
+
+    def dim (self):
+        return self.cols, self.rows
+
+
+
 def manhattan (a: list[int], b: list[int]) -> int:
     
     '''
